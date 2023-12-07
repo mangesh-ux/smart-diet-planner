@@ -1,0 +1,12 @@
+
+    sequenceDiagram
+        participant U as User
+        participant DP as DietPlan
+        U->>U: input_personal_details(username, password, age, gender, weight, height, activity_level, goal)
+        U->>DP: generate_diet_plan()
+        DP-->>U: return diet_plan
+        U->>U: track_food_intake()
+        U->>U: suggest_meals()
+        U->>U: adjust_diet_plan()
+        U->>U: track_progress()
+    

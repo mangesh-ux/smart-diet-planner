@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Smart Diet Plan App - Suggest</title>
+    <link href="{{ url_for('static', filename='css/main.css') }}" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="{{ url_for('home') }}">Smart Diet Plan App</a>
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('home') }}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('dietplan') }}">Diet Plan</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('track') }}">Track</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="{{ url_for('suggest') }}">Suggest</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('adjust') }}">Adjust</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('progress') }}">Progress</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('logout') }}">Logout</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="mt-5">Meal Suggestions</h1>
+                <form action="{{ url_for('suggest') }}" method="post">
+                    <div class="form-group">
+                        <label for="food_preference">Food Preference</label>
+                        <input type="text" class="form-control" id="food_preference" name="food_preference" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+                {% if meal_suggestions %}
+                    <h2 class="mt-5">Here are some meal suggestions based on your preference:</h2>
+                    <ul>
+                        {% for meal in meal_suggestions %}
+                            <li>{{ meal }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</body>
+</html>

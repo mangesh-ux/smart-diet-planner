@@ -1,0 +1,23 @@
+
+    classDiagram
+        class User{
+            +str username
+            +str password
+            +int age
+            +str gender
+            +float weight
+            +float height
+            +str activity_level
+            +str goal
+            +DietPlan diet_plan
+            +__init__(username: str, password: str, age: int, gender: str, weight: float, height: float, activity_level: str, goal: str)
+        }
+        class DietPlan{
+            +int calories
+            +int protein
+            +int carbs
+            +int fats
+            +__init__(calories: int, protein: int, carbs: int, fats: int)
+        }
+        User "1" -- "1" DietPlan: has
+    
